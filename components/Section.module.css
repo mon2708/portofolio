@@ -1,0 +1,20 @@
+.section {
+    padding: 64px 24px;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #fff, #a1a1aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.content {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.125rem;
+    line-height: 1.75;
+}

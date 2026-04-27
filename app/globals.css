@@ -10,6 +10,12 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  @keyframes shine {
+    from { background-position: 100%; }
+    to { background-position: -100%; }
+  }
+  --animate-shine: shine 5s linear infinite;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +29,27 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Lebih tipis & subtle */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track transparan */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Thumb glass */
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+}
+
+/* Hover → sedikit muncul */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
