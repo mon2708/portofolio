@@ -6,10 +6,12 @@ import ProjectCard from "@/components/ProjectCard"
 import StatCard from "@/components/StatCard"
 import Footer from "@/components/Footer"
 import ScrollToTop from "@/components/ScrollToTop"
-import { FiTarget, FiUsers, FiAward, FiZap } from 'react-icons/fi'
+import { FiTarget, FiUsers, FiAward, FiZap, FiGlobe, FiMessageCircle, FiServer, FiLayers, FiCpu } from 'react-icons/fi'
 import image2 from "@/public/2.png"
 import LogoLoop from '@/components/LogoLoop';
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiFramer, SiNodedotjs, SiFigma } from 'react-icons/si';
+import ServiceCard from "@/components/ServiceCard";
+import { productsData } from "@/data/products";
 
 const techLogos = [
   { node: <SiReact size={40} />, title: "React", href: "https://react.dev" },
@@ -188,6 +190,47 @@ export default function Home() {
                 <ProjectCard {...project} />
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Section Services / Products */}
+        <section id="services" className="py-32 border-t border-white/5">
+          <div className="mb-16">
+            <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">03 // Solutions</span>
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+              <h2 className="text-5xl md:text-6xl font-bold leading-tight">
+                Premium Services
+              </h2>
+              <p className="text-white/50 max-w-sm text-lg">
+                Layanan profesional yang dirancang untuk membantu bisnismu tumbuh lebih cepat dan efisien.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {productsData.products.map((service, index) => {
+              // Assign icons based on service name
+              let icon = <FiGlobe />;
+              if (service.name.toLowerCase().includes('whatsapp')) icon = <FiMessageCircle />;
+              if (service.name.toLowerCase().includes('server')) icon = <FiServer />;
+              if (service.name.toLowerCase().includes('landing page')) icon = <FiLayers />;
+              if (service.name.toLowerCase().includes('api') || service.name.toLowerCase().includes('backend')) icon = <FiCpu />;
+              
+              const waMessage = encodeURIComponent(`Halo Afterlife, saya tertarik dengan layanan: ${service.name}`);
+              const waLink = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${waMessage}`;
+
+              return (
+                <ServiceCard 
+                  key={index}
+                  name={service.name}
+                  price={service.price}
+                  description={service.description}
+                  icon={icon}
+                  index={index}
+                  serviceLink={waLink}
+                />
+              );
+            })}
           </div>
         </section>
       </div>

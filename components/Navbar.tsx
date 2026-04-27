@@ -35,7 +35,8 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "/", isLink: true },
     { name: "Expertise", href: "about", isLink: false },
-    { name: "Project", href: "project", isLink: false },
+    { name: "Portfolio", href: "project", isLink: false },
+    { name: "Solutions", href: "services", isLink: false },
   ];
 
   return (
@@ -45,7 +46,7 @@ export default function Navbar() {
           <nav className="flex items-center justify-between px-6 md:px-8 py-3 w-[90vw] md:w-[85vw] max-w-3xl">
             {/* Logo */}
             <div className="text-white font-bold text-xl tracking-tighter">
-              REMON<span className="text-blue-500">.</span>
+              AFTERLIFE<span className="text-blue-500">.</span>
             </div>
 
             {/* Desktop Menu */}

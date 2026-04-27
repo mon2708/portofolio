@@ -57,7 +57,7 @@ export default function Hero() {
           ></TextType>
 
           <div className="mt-8 flex gap-4">
-            <Link href="https://wa.me/6282226174850" target="_blank" rel="noopener noreferrer">
+            <Link href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer">
               <button
                 className="px-6 py-3
       rounded-xl

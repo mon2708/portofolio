@@ -108,7 +108,7 @@ export default function Footer() {
               onClick={(e) => handleScroll(e, '#')}
               className="inline-block text-3xl font-bold mb-6 tracking-tighter hover:text-blue-500 transition-colors"
             >
-              REMON<span className="text-blue-500">.</span>
+              AFTERLIFE<span className="text-blue-500">.</span>
             </a>
             <p className="text-white/50 max-w-sm mb-8 leading-relaxed">
               Membangun masa depan digital melalui kode dan desain yang presisi.
@@ -154,7 +154,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-32 items-center">
           {/* Left Column: Text Content */}
           <div className="max-w-xl">
-            <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">03 // Contact</span>
+            <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">04 // Contact</span>
             <h3 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               <ShinyText
                 text="Let's build something great."
@@ -249,7 +249,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-white/20 text-sm">
-            © {currentYear} Remon. All rights reserved.
+            © {currentYear} AFTERLIFE. All rights reserved.
           </p>
           <div className="flex gap-8 text-white/20 text-sm">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
@@ -260,7 +260,7 @@ export default function Footer() {
 
       {/* Giant Bottom Marquee / Decorative Title */}
       <div className="absolute -bottom-10 left-0 w-full opacity-[0.1] pointer-events-none select-none">
-        <h1 className="text-[20vw] font-black leading-none text-center">REMON</h1>
+        <h1 className="text-[15vw] font-black leading-none text-center">AFTERLIFE</h1>
       </div>
     </footer>
   );
