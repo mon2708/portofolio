@@ -1,11 +1,11 @@
 import React from 'react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { FiArrowUpRight } from 'react-icons/fi';
 
 interface ProjectCardProps {
   title: string;
   category: string;
-  image: string;
+  image: string | StaticImageData;
   link?: string;
   tags?: string[];
 }

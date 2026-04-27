@@ -52,7 +52,18 @@ export default function Footer() {
     }
   };
 
-  const footerLinks = [
+  interface FooterLink {
+    name: string;
+    href: string;
+    icon?: React.ReactNode;
+  }
+
+  interface FooterSection {
+    title: string;
+    links: FooterLink[];
+  }
+
+  const footerLinks: FooterSection[] = [
     {
       title: "Navigation",
       links: [
