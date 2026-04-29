@@ -32,21 +32,13 @@ export default function Hero() {
           {/* h1 tersembunyi untuk SEO — Google butuh satu h1 yang jelas */}
           <h1 className="sr-only">Remon — Afterlife | Web Developer & Jasa Digital Indonesia</h1>
 
-          <div className="text-4xl md:text-6xl font-bold leading-tight">
+          <div className="text-4xl md:text-7xl font-bold leading-[1.1] tracking-tight">
             <BlurText
-              text="Bangun Sesuatu yang"
+              text="Bangun Sesuatu yang Indah & Bertenaga"
               delay={50}
               animateBy="words"
               direction="top"
-              className="inline-block mr-3"
-            />
-
-            <BlurText
-              text="Indah & Bertenaga"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              className="inline-block text-black-400"
+              className="inline-block"
             />
           </div>
 
