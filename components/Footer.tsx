@@ -115,13 +115,19 @@ export default function Footer() {
               Berlokasi di Indonesia, tersedia untuk kolaborasi global.
             </p>
             <div className="flex gap-4">
-              {[<FiGithub key="gh" />, <FiLinkedin key="li" />, <FiTwitter key="tw" />, <FiInstagram key="ig" />].map((icon, i) => (
+              {[
+                { icon: <FiGithub />, label: "Github Afterlife" },
+                { icon: <FiLinkedin />, label: "LinkedIn Remon" },
+                { icon: <FiTwitter />, label: "Twitter Afterlife" },
+                { icon: <FiInstagram />, label: "Instagram Afterlife" }
+              ].map((item, i) => (
                 <a
                   key={i}
                   href="#"
+                  aria-label={item.label}
                   className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:border-white/30 transition-all"
                 >
-                  {icon}
+                  {item.icon}
                 </a>
               ))}
             </div>

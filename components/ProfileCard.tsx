@@ -131,7 +131,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
               <img 
                 src={avatarUrl} 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
-                alt="Profile"
+                alt={`Foto Profil ${name} - ${title} di Afterlife`}
               />
             </div>
           </div>

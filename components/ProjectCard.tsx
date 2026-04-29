@@ -17,7 +17,7 @@ export default function ProjectCard({ title, category, image, link = "#", tags =
       <div className="relative aspect-video overflow-hidden">
         <Image 
           src={image} 
-          alt={title} 
+          alt={`Proyek ${title} - ${category} oleh Remon Afterlife`} 
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-105"
         />
