@@ -95,7 +95,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="relative w-full max-w-[340px] aspect-[3/4] rounded-[2.2rem] overflow-hidden border border-white/10 shadow-2xl transition-transform duration-200 ease-out flex flex-col"
+        className="relative w-full max-w-[400px] aspect-[3/4.2] rounded-[2.8rem] overflow-hidden border border-white/10 shadow-2xl transition-transform duration-200 ease-out flex flex-col"
         style={{
           background: innerGradient,
           backdropFilter: 'blur(10px)',
@@ -113,21 +113,21 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
         />
 
         {/* Top Header */}
-        <div className="p-6 flex justify-between items-center z-10">
+        <div className="p-8 flex justify-between items-center z-10">
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[10px] uppercase tracking-widest text-white/50 font-bold">{status}</span>
+            <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-[11px] uppercase tracking-widest text-white/50 font-bold">{status}</span>
           </div>
-          <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-            <span className="text-white/20 text-xs">ID</span>
+          <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+            <span className="text-white/20 text-sm font-bold">ID</span>
           </div>
         </div>
 
         {/* Content Area */}
-        <div className="flex-1 flex flex-col items-center justify-center px-8 z-10">
-          <div className="relative mb-6">
-            <div className="absolute -inset-4 bg-blue-500/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="w-32 h-32 rounded-full border-4 border-white/10 overflow-hidden relative z-10 shadow-2xl">
+        <div className="flex-1 flex flex-col items-center justify-center px-10 z-10">
+          <div className="relative mb-8">
+            <div className="absolute -inset-6 bg-blue-500/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="w-48 h-48 rounded-full border-4 border-white/10 overflow-hidden relative z-10 shadow-2xl">
               <img 
                 src={avatarUrl} 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
@@ -137,11 +137,11 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
           </div>
 
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-white tracking-tight mb-1">{name}</h3>
-            <p className="text-white/40 text-sm font-medium mb-4">{title}</p>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10">
-              <span className="text-[10px] text-blue-400 font-bold">@</span>
-              <span className="text-[10px] text-white/60 font-mono">{handle}</span>
+            <h3 className="text-3xl font-bold text-white tracking-tight mb-2">{name}</h3>
+            <p className="text-white/40 text-base font-medium mb-5">{title}</p>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10">
+              <span className="text-[11px] text-blue-400 font-bold">@</span>
+              <span className="text-[11px] text-white/60 font-mono">{handle}</span>
             </div>
           </div>
         </div>
