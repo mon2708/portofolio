@@ -266,15 +266,22 @@ export default function Home() {
             <div className="max-w-xl">
               <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">01.7 // {lang === 'id' ? 'Tentang Saya' : 'About Me'}</span>
               <h2 className="text-5xl md:text-7xl font-bold mb-10 tracking-tighter leading-tight">
-                {lang === 'id' ? 'Di Balik' : 'Behind'} <br /> 
-                <span className="text-blue-500">{lang === 'id' ? 'Layar.' : 'Screens.'}</span>
+                {lang === 'id' ? 'Di Balik Layar' : 'Behind the Screens'} <br /> 
+                <span className="text-blue-500">Afterlife.</span>
               </h2>
+              
               <div className="space-y-8 text-white/50 text-xl leading-relaxed">
                 <p>
                   {lang === 'id' 
-                    ? "Halo! Saya Remon, otak dan penggerak di balik Afterlife. Saya membangun identitas digital kamu dengan perhatian penuh pada detail."
-                    : "Hi! I'm Remon, the mind and engine behind Afterlife. I build your digital identity with full attention to detail."}
+                    ? "Halo! Saya Remon, otak dan penggerak di balik Afterlife. Saya adalah seorang developer yang terobsesi dengan detail, performa, dan estetika digital."
+                    : "Hi! I'm Remon, the mind and engine behind Afterlife. I'm a developer obsessed with details, performance, and digital aesthetics."}
                 </p>
+                <p>
+                  {lang === 'id'
+                    ? "Memulai perjalanan sebagai solo developer mengajarkan saya satu hal: kualitas tidak butuh tim besar, tapi butuh dedikasi besar. Di sini, setiap proyek saya tangani sendiri untuk memastikan standar 'Afterlife' tetap terjaga."
+                    : "Starting my journey as a solo developer taught me one thing: quality doesn't need a large team, it needs great dedication. Here, I handle every project personally to ensure the 'Afterlife' standard is maintained."}
+                </p>
+                
                 <div className="pt-10 flex gap-12">
                   <div>
                     <h4 className="text-white font-bold text-5xl mb-2 italic tracking-tighter">3+</h4>
