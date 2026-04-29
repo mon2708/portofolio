@@ -8,8 +8,38 @@ import { useEffect, useRef } from "react";
 import Public from "@/public/pbg.png";
 import TextType from "./TextType";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Hero() {
+  const { lang } = useLanguage();
+
+  const content = {
+    id: {
+      line1: "Menghidupkan",
+      line2: "Ide Digital Kamu",
+      textType: [
+        "Halo!! Remon di sini!! Apa kabar!",
+        "Saya percaya bahwa desain adalah jembatan antara imajinasi dan realita. Fokus saya bukan cuma bikin web yang 'jalan', tapi bikin web yang punya jiwa lewat animasi yang halus dan UX yang presisi.",
+        "Happy coding!"
+      ],
+      contact: "Contact Me",
+      learn: "Learn More"
+    },
+    en: {
+      line1: "Bringing Your",
+      line2: "Digital Ideas to Life",
+      textType: [
+        "Hi!! Remon here!! How are you!",
+        "I believe design is the bridge between imagination and reality. My focus isn't just on building websites that 'work', but creating websites with a soul through smooth animations and precise UX.",
+        "Happy coding!"
+      ],
+      contact: "Contact Me",
+      learn: "Learn More"
+    }
+  };
+
+  const t = content[lang];
+
   return (
     <section className="min-h-[90vh] flex items-center px-6">
       <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-10 items-center">
@@ -30,11 +60,11 @@ export default function Hero() {
 
         <div>
           {/* h1 tersembunyi untuk SEO — Google butuh satu h1 yang jelas */}
-          <h1 className="sr-only">Afterlife by Remon — Menghidupkan Ide Digital Kamu | Web Developer Indonesia</h1>
+          <h1 className="sr-only">Afterlife by Remon — {t.line1} {t.line2} | Web Developer Indonesia</h1>
 
           <div className="text-[2.6rem] md:text-7xl font-bold leading-[1.1] tracking-tight">
             <BlurText
-              text="Menghidupkan"
+              text={t.line1}
               delay={50}
               animateBy="words"
               direction="top"
@@ -42,7 +72,7 @@ export default function Hero() {
             />
 
             <BlurText
-              text="Ide Digital Kamu"
+              text={t.line2}
               delay={150}
               animateBy="words"
               direction="top"
@@ -51,10 +81,7 @@ export default function Hero() {
           </div>
 
           <TextType
-            text={[
-              "Halo!! Remon di sini!! Apa kabar!",
-              "Saya percaya bahwa desain adalah jembatan antara imajinasi dan realita. Fokus saya bukan cuma bikin web yang 'jalan', tapi bikin web yang punya jiwa lewat animasi yang halus dan UX yang presisi.",
-              "Happy coding!"]}
+            text={t.textType}
             className="mt-8 text-white/80 text-sm md:text-base max-w-md bg-white/5 backdrop-blur-md px-5 py-4 rounded-2xl border border-white/10 leading-relaxed"
             deletingSpeed={10}
           ></TextType>
@@ -72,7 +99,7 @@ export default function Hero() {
       active:scale-95
       transition-all"
               >
-                Contact Me
+                {t.contact}
               </button>
             </Link>
             <Link href="#about" scroll={false} className="w-full sm:w-auto">
@@ -88,7 +115,7 @@ export default function Hero() {
     active:scale-95
     transition-all"
               >
-                Learn More
+                {t.learn}
               </button>
             </Link>
           </div>

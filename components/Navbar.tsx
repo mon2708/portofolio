@@ -4,9 +4,11 @@ import GlassSurface from "./GlassSurface";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { lang, setLanguage } = useLanguage();
 
   useEffect(() => {
     if (isOpen) {
@@ -142,16 +144,33 @@ export default function Navbar() {
                 ))}
               </div>
 
-              {/* Extra content placeholder for user */}
+              {/* Language Switcher & Socials */}
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
                 className="mt-20 pt-8 border-t border-white/10"
               >
+                <div className="flex items-center justify-between mb-8">
+                  <p className="text-white/40 text-sm tracking-widest uppercase">Language</p>
+                  <div className="flex bg-white/5 p-1 rounded-lg border border-white/10">
+                    <button
+                      onClick={() => setLanguage("id")}
+                      className={`px-3 py-1 text-xs font-bold rounded-md transition-all ${lang === 'id' ? 'bg-blue-600 text-white shadow-lg' : 'text-white/40 hover:text-white'}`}
+                    >
+                      ID
+                    </button>
+                    <button
+                      onClick={() => setLanguage("en")}
+                      className={`px-3 py-1 text-xs font-bold rounded-md transition-all ${lang === 'en' ? 'bg-blue-600 text-white shadow-lg' : 'text-white/40 hover:text-white'}`}
+                    >
+                      EN
+                    </button>
+                  </div>
+                </div>
+
                 <p className="text-white/40 text-sm tracking-widest uppercase">Socials</p>
                 <div className="flex gap-4 mt-4">
-                  {/* User can add more here */}
                   <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:bg-blue-500/20 hover:text-blue-500 transition-all cursor-pointer">
                     IN
                   </div>

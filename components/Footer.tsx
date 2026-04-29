@@ -3,9 +3,66 @@ import React, { useState } from 'react';
 import { FiGithub, FiTwitter, FiInstagram, FiLinkedin, FiMail, FiArrowUpRight, FiCheckCircle } from 'react-icons/fi';
 import ShinyText from './ShinyText';
 
+import { useLanguage } from "@/context/LanguageContext";
+
 export default function Footer() {
+  const { lang } = useLanguage();
   const currentYear = new Date().getFullYear();
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  interface FooterLink {
+    name: string;
+    href: string;
+    icon?: React.ReactNode;
+  }
+
+  interface FooterSection {
+    title: string;
+    links: FooterLink[];
+  }
+
+  const content = {
+    id: {
+      brandDesc: "Membangun masa depan digital melalui kode dan desain yang presisi. Berlokasi di Indonesia, tersedia untuk kolaborasi global.",
+      navTitle: "Navigasi",
+      socialTitle: "Sosial Media",
+      serviceTitle: "Layanan",
+      ctaTitle: "Mari bangun sesuatu yang hebat.",
+      ctaDesc: "Punya ide menarik? Mari kita buat sesuatu yang luar biasa bersama-sama. Ceritakan proyekmu dan mari kita mulai kolaborasi ini.",
+      formName: "Nama Kamu",
+      formEmail: "Email Kamu",
+      formDetails: "Detail Proyek",
+      formPlaceholder: "Ceritakan tentang proyekmu...",
+      formButton: "Kirim Pesan",
+      formSending: "Mengirim...",
+      formError: "Gagal mengirim pesan. Coba lagi nanti.",
+      successTitle: "Pesan Terkirim!",
+      successDesc: "Terima kasih atas pesanmu. Saya akan segera menghubungimu.",
+      successButton: "Kirim pesan lain",
+      footerRights: "Seluruh hak cipta dilindungi."
+    },
+    en: {
+      brandDesc: "Building the digital future through precise code and design. Based in Indonesia, available for global collaboration.",
+      navTitle: "Navigation",
+      socialTitle: "Socials",
+      serviceTitle: "Services",
+      ctaTitle: "Let's build something great.",
+      ctaDesc: "Got an interesting idea? Let's create something extraordinary together. Tell me about your project and let's start this collaboration.",
+      formName: "Your Name",
+      formEmail: "Your Email",
+      formDetails: "Project Details",
+      formPlaceholder: "Tell me about your project...",
+      formButton: "Send Message",
+      formSending: "Sending...",
+      formError: "Failed to send message. Please try again later.",
+      successTitle: "Message Sent!",
+      successDesc: "Thank you for your message. I'll get back to you soon.",
+      successButton: "Send another message",
+      footerRights: "All rights reserved."
+    }
+  };
+
+  const t = content[lang];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -52,29 +109,18 @@ export default function Footer() {
     }
   };
 
-  interface FooterLink {
-    name: string;
-    href: string;
-    icon?: React.ReactNode;
-  }
-
-  interface FooterSection {
-    title: string;
-    links: FooterLink[];
-  }
-
   const footerLinks: FooterSection[] = [
     {
-      title: "Navigation",
+      title: t.navTitle,
       links: [
         { name: "Home", href: "#" },
-        { name: "Expertise", href: "#about" },
-        { name: "Projects", href: "#project" },
-        { name: "Contact", href: "mailto:hello@remon.com" },
+        { name: lang === 'id' ? "Keahlian" : "Expertise", href: "#about" },
+        { name: lang === 'id' ? "Proyek" : "Projects", href: "#project" },
+        { name: lang === 'id' ? "Kontak" : "Contact", href: "mailto:hello@remon.com" },
       ]
     },
     {
-      title: "Socials",
+      title: t.socialTitle,
       links: [
         { name: "Github", href: "#", icon: <FiGithub /> },
         { name: "LinkedIn", href: "#", icon: <FiLinkedin /> },
@@ -83,7 +129,7 @@ export default function Footer() {
       ]
     },
     {
-      title: "Services",
+      title: t.serviceTitle,
       links: [
         { name: "Web Development", href: "#" },
         { name: "UI/UX Design", href: "#" },
@@ -111,8 +157,7 @@ export default function Footer() {
               AFTERLIFE<span className="text-blue-500">.</span>
             </a>
             <p className="text-white/50 max-w-sm mb-8 leading-relaxed">
-              Membangun masa depan digital melalui kode dan desain yang presisi.
-              Berlokasi di Indonesia, tersedia untuk kolaborasi global.
+              {t.brandDesc}
             </p>
             <div className="flex gap-4">
               {[
@@ -160,17 +205,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 mb-32 items-center">
           {/* Left Column: Text Content */}
           <div className="max-w-xl">
-            <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">04 // Contact</span>
+            <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">04 // {lang === 'id' ? 'Kontak' : 'Contact'}</span>
             <h3 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               <ShinyText
-                text="Let's build something great."
+                text={t.ctaTitle}
                 speed={3}
                 className="font-bold"
               />
             </h3>
             <p className="text-white/40 text-xl leading-relaxed">
-              Punya ide menarik? Mari kita buat sesuatu yang luar biasa bersama-sama.
-              Ceritakan proyekmu dan mari kita mulai kolaborasi ini.
+              {t.ctaDesc}
             </p>
           </div>
 
@@ -181,7 +225,7 @@ export default function Footer() {
               className={`space-y-6 transition-all duration-500 ${status === 'success' ? 'opacity-0 pointer-events-none scale-95' : 'opacity-100'}`}
             >
               <div className="space-y-2">
-                <label className="text-xs uppercase tracking-widest text-white/30 ml-1">Your Name</label>
+                <label className="text-xs uppercase tracking-widest text-white/30 ml-1">{t.formName}</label>
                 <input
                   name="name"
                   type="text"
@@ -191,7 +235,7 @@ export default function Footer() {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-xs uppercase tracking-widest text-white/30 ml-1">Your Email</label>
+                <label className="text-xs uppercase tracking-widest text-white/30 ml-1">{t.formEmail}</label>
                 <input
                   name="email"
                   type="email"
@@ -201,12 +245,12 @@ export default function Footer() {
                 />
               </div>
               <div className="space-y-2">
-                <label className="text-xs uppercase tracking-widest text-white/30 ml-1">Project Details</label>
+                <label className="text-xs uppercase tracking-widest text-white/30 ml-1">{t.formDetails}</label>
                 <textarea
                   name="message"
                   rows={5}
                   required
-                  placeholder="Tell me about your project..."
+                  placeholder={t.formPlaceholder}
                   className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-blue-500/50 transition-all focus:bg-white/10 resize-none"
                 />
               </div>
@@ -219,17 +263,17 @@ export default function Footer() {
                 {status === 'sending' ? (
                   <span className="flex items-center gap-2">
                     <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                    Sending...
+                    {t.formSending}
                   </span>
                 ) : (
                   <>
-                    Send Message
+                    {t.formButton}
                     <FiMail className="text-xl transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                   </>
                 )}
               </button>
               {status === 'error' && (
-                <p className="text-red-400 text-sm mt-4 text-center">Gagal mengirim pesan. Coba lagi nanti.</p>
+                <p className="text-red-400 text-sm mt-4 text-center">{t.formError}</p>
               )}
             </form>
 
@@ -239,13 +283,13 @@ export default function Footer() {
                 <div className="w-20 h-20 bg-blue-500/20 text-blue-500 rounded-full flex items-center justify-center mb-6">
                   <FiCheckCircle size={40} />
                 </div>
-                <h4 className="text-2xl font-bold mb-2">Message Sent!</h4>
-                <p className="text-white/40 mb-8">Terima kasih atas pesanmu. Saya akan segera menghubungimu.</p>
+                <h4 className="text-2xl font-bold mb-2">{t.successTitle}</h4>
+                <p className="text-white/40 mb-8">{t.successDesc}</p>
                 <button
                   onClick={() => setStatus('idle')}
                   className="text-blue-500 text-sm hover:underline"
                 >
-                  Send another message
+                  {t.successButton}
                 </button>
               </div>
             )}
@@ -255,7 +299,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-white/20 text-sm">
-            © {currentYear} AFTERLIFE. All rights reserved.
+            © {currentYear} AFTERLIFE. {t.footerRights}
           </p>
           <div className="flex gap-8 text-white/20 text-sm">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
@@ -265,9 +309,10 @@ export default function Footer() {
       </div>
 
       {/* Giant Bottom Marquee / Decorative Title */}
-      <div className="absolute -bottom-10 left-0 w-full opacity-[0.1] pointer-events-none select-none">
+      <div className="absolute bottom-10 left-0 w-full opacity-[0.1] pointer-events-none select-none">
         <h1 className="text-[15vw] font-black leading-none text-center">AFTERLIFE</h1>
       </div>
     </footer>
   );
 }
+

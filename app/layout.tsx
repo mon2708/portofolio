@@ -104,6 +104,9 @@ const jsonLd = {
   },
 };
 
+import { LanguageProvider } from "@/context/LanguageContext";
+import TransitionOverlay from "@/components/TransitionOverlay";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -120,7 +123,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <LanguageProvider>
+          <TransitionOverlay />
+          {children}
+        </LanguageProvider>
+      </body>
     </html>
   );
 }
