@@ -248,8 +248,8 @@ export default function Home() {
           {/* Background Decor */}
           <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full -translate-y-1/2 -translate-x-1/2" />
           
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
-            <div className="lg:col-span-2 flex justify-center lg:justify-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div className="flex justify-center lg:justify-start">
               <ProfileCard 
                 name="Remon"
                 title={lang === 'id' ? "Fullstack Developer" : "Fullstack Developer"}
@@ -261,7 +261,7 @@ export default function Home() {
               />
             </div>
             
-            <div className="lg:col-span-3">
+            <div>
               <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">01.7 // {lang === 'id' ? 'Tentang Saya' : 'About Me'}</span>
               <h2 className="text-5xl font-bold mb-8">{lang === 'id' ? 'Di Balik Layar' : 'Behind the Screens'} <span className="text-blue-500">Afterlife.</span></h2>
               
