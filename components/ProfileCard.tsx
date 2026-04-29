@@ -103,68 +103,71 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
           transformStyle: 'preserve-3d'
         }}
       >
+        {/* Full Image Background */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={avatarUrl} 
+            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100" 
+            alt={`Foto Profil ${name} - ${title} di Afterlife`}
+          />
+          {/* Gradient Overlay for Text Readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-700" />
+        </div>
+
         {/* Shine Effect */}
         <div 
           className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           style={{
-            background: `radial-gradient(circle at ${isHovered ? 'var(--mouse-x, 50%)' : '50%'} ${isHovered ? 'var(--mouse-y, 50%)' : '50%'}, rgba(255,255,255,0.15) 0%, transparent 60%)`,
+            background: `radial-gradient(circle at ${isHovered ? 'var(--mouse-x, 50%)' : '50%'} ${isHovered ? 'var(--mouse-y, 50%)' : '50%'}, rgba(255,255,255,0.1) 0%, transparent 60%)`,
             zIndex: 5
           }}
         />
 
         {/* Top Header */}
         <div className="p-8 flex justify-between items-center z-10">
-          <div className="flex items-center gap-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[11px] uppercase tracking-widest text-white/50 font-bold">{status}</span>
+          <div className="flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+            <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="text-[10px] uppercase tracking-widest text-white/80 font-bold">{status}</span>
           </div>
-          <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
-            <span className="text-white/20 text-sm font-bold">ID</span>
+          <div className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center border border-white/10">
+            <span className="text-white/80 text-sm font-bold">ID</span>
           </div>
         </div>
 
-        {/* Content Area */}
-        <div className="flex-1 flex flex-col items-center justify-center px-10 z-10">
-          <div className="relative mb-8">
-            <div className="absolute -inset-6 bg-blue-500/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="w-48 h-48 rounded-full border-4 border-white/10 overflow-hidden relative z-10 shadow-2xl">
-              <img 
-                src={avatarUrl} 
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" 
-                alt={`Foto Profil ${name} - ${title} di Afterlife`}
-              />
+        {/* Content Area - Now Pushed to Bottom */}
+        <div className="flex-1 flex flex-col justify-end px-8 pb-4 z-10">
+          <div className="transform transition-transform duration-500 group-hover:-translate-y-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 backdrop-blur-md border border-blue-500/30 mb-4">
+              <span className="text-[10px] text-blue-300 font-bold">@</span>
+              <span className="text-[10px] text-blue-100 font-mono tracking-tight">{handle}</span>
             </div>
-          </div>
-
-          <div className="text-center">
-            <h3 className="text-3xl font-bold text-white tracking-tight mb-2">{name}</h3>
-            <p className="text-white/40 text-base font-medium mb-5">{title}</p>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10">
-              <span className="text-[11px] text-blue-400 font-bold">@</span>
-              <span className="text-[11px] text-white/60 font-mono">{handle}</span>
-            </div>
+            
+            <h3 className="text-4xl font-bold text-white tracking-tighter mb-1 drop-shadow-lg">
+              {name}
+            </h3>
+            <p className="text-white/70 text-base font-medium drop-shadow-md">{title}</p>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="p-6 z-10 space-y-4">
+        <div className="p-8 pt-0 z-10 space-y-4">
           <button 
             onClick={onContactClick}
-            className="w-full py-4 rounded-2xl bg-white text-black font-bold text-sm tracking-tight hover:bg-blue-500 hover:text-white transition-all duration-300 active:scale-95 shadow-xl"
+            className="w-full py-4 rounded-2xl bg-white/10 backdrop-blur-xl text-white border border-white/20 font-bold text-sm tracking-tight hover:bg-white hover:text-black transition-all duration-300 active:scale-95 shadow-xl"
           >
             {contactText}
           </button>
           <div className="flex justify-center gap-6">
-            {['GitHub', 'Twitter', 'LinkedIn'].map((social) => (
-              <span key={social} className="text-[9px] uppercase tracking-widest text-white/20 hover:text-white/60 cursor-pointer transition-colors font-bold">
+            {['GitHub', 'LinkedIn'].map((social) => (
+              <span key={social} className="text-[9px] uppercase tracking-widest text-white/40 hover:text-white cursor-pointer transition-colors font-bold">
                 {social}
               </span>
             ))}
           </div>
         </div>
 
-        {/* Subtle Geometric Background */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
+        {/* Subtle Noise Overlay */}
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none mix-blend-overlay z-10" style={{ backgroundImage: 'url("https://grainy-gradients.vercel.app/noise.svg")' }} />
       </div>
     </div>
   )
