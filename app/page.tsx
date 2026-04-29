@@ -11,7 +11,7 @@ import image2 from "@/public/2.png"
 import LogoLoop from '@/components/LogoLoop';
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiFramer, SiNodedotjs, SiFigma } from 'react-icons/si';
 import ServiceCard from "@/components/ServiceCard";
-import ProfileCard from "@/components/ProfileCard";
+import AboutProfile from "@/components/AboutProfile";
 import { productsData } from "@/data/products";
 
 const techLogos = [
@@ -252,15 +252,12 @@ export default function Home() {
         
         <div className="flex flex-col lg:flex-row items-center w-full">
           {/* Left: THE MASSIVE PHOTO */}
-          <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
-            <ProfileCard 
+          <div className="w-full lg:w-1/2 px-6 lg:px-12">
+            <AboutProfile 
               name="Remon"
               title={lang === 'id' ? "Fullstack Developer" : "Fullstack Developer"}
               handle="afterlife.remon"
-              status="Available"
               avatarUrl="/2.png"
-              onContactClick={() => window.open(`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`, '_blank')}
-              behindGlowColor="rgba(59, 130, 246, 0.2)"
             />
           </div>
           
