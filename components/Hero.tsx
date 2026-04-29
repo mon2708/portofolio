@@ -38,6 +38,8 @@ export default function Hero() {
     }
   };
 
+  const t = (content as any)[lang] || content.id;
+
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);

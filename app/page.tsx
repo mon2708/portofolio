@@ -124,8 +124,8 @@ export default function Home() {
     }
   };
 
-  const t = content[lang];
-  const p = productsData[lang];
+  const t = (content as any)[lang] || content.id;
+  const p = (productsData as any)[lang] || productsData.id;
 
   const projects = [
     {
