@@ -50,28 +50,28 @@ export default function Home() {
         <Hero />
         <section id="about" className="grid grid-cols-1 lg:grid-cols-5 gap-12 py-20 lg:py-32 border-t border-white/5 mt-20">
           <div className="lg:col-span-2 lg:sticky lg:top-32 h-fit">
-            <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">01 // Expertise</span>
+            <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">01 // Keahlian</span>
             <h2 className="text-4xl md:text-6xl font-bold mb-6 lg:mb-8 leading-tight">
-              Crafting Digital <br /> Excellence
+              Membangun Digital <br /> Berkelas
             </h2>
             <p className="text-white/60 text-lg leading-relaxed mb-8">
-              Saya adalah seorang pengembang yang berfokus pada detail dan performa.
+              Saya adalah seorang developer yang berfokus pada detail dan performa.
               Membangun pengalaman web yang tidak hanya berfungsi dengan baik,
-              tapi juga memanjakan mata melalui animasi yang halus dan desain yang modern.
+              tapi juga memanjakan mata lewat animasi yang halus dan desain yang modern.
             </p>
 
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-3 text-white/80">
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                <span>Premium User Experience</span>
+                <span>Pengalaman Pengguna Premium</span>
               </div>
               <div className="flex items-center gap-3 text-white/80">
                 <div className="w-1.5 h-1.5 rounded-full bg-purple-500"></div>
-                <span>Scalable Architecture</span>
+                <span>Arsitektur yang Skalabel</span>
               </div>
               <div className="flex items-center gap-3 text-white/80">
                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
-                <span>High-End Animations</span>
+                <span>Animasi Berkualitas Tinggi</span>
               </div>
             </div>
           </div>
@@ -84,11 +84,11 @@ export default function Home() {
                     <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-500/30">
                       <span className="text-2xl text-blue-400">🎨</span>
                     </div>
-                    <h2 className="text-3xl font-bold">Frontend Developer</h2>
+                    <h3 className="text-3xl font-bold">Frontend Developer</h3>
                   </div>
                   <p className="text-white/60 text-lg leading-relaxed">
-                    Expert in crafting responsive, performant, and accessible user interfaces.
-                    I focus on motion design and micro-interactions that make websites feel alive.
+                    Ahli dalam membangun antarmuka yang responsif, cepat, dan mudah diakses.
+                    Saya fokus pada motion design dan micro-interaction yang membuat website terasa hidup.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-2">
                     {['React', 'Next.js', 'Tailwind', 'GSAP', 'Framer Motion'].map(tech => (
@@ -106,11 +106,11 @@ export default function Home() {
                     <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center border border-purple-500/30">
                       <span className="text-2xl text-purple-400">⚙️</span>
                     </div>
-                    <h2 className="text-3xl font-bold">Backend Architect</h2>
+                    <h3 className="text-3xl font-bold">Backend Architect</h3>
                   </div>
                   <p className="text-white/60 text-lg leading-relaxed">
-                    Designing scalable APIs and robust database structures.
-                    Focusing on security, data integrity, and high-performance server logic.
+                    Merancang API yang skalabel dan struktur database yang tangguh.
+                    Fokus pada keamanan, integritas data, dan logika server berkinerja tinggi.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-2">
                     {['Node.js', 'PostgreSQL', 'Redis', 'Docker', 'GraphQL'].map(tech => (
@@ -128,11 +128,11 @@ export default function Home() {
                     <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30">
                       <span className="text-2xl text-emerald-400">🚀</span>
                     </div>
-                    <h2 className="text-3xl font-bold">Fullstack Engineer</h2>
+                    <h3 className="text-3xl font-bold">Fullstack Engineer</h3>
                   </div>
                   <p className="text-white/60 text-lg leading-relaxed">
-                    Bridging the gap between design and technology.
-                    I deliver end-to-end solutions that are fast to market and easy to scale.
+                    Menjembatani desain dan teknologi menjadi satu solusi utuh.
+                    Saya menghadirkan solusi end-to-end yang cepat diluncurkan dan mudah dikembangkan.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-2">
                     {['TypeScript', 'AWS', 'GraphQL', 'Prisma', 'NextAuth'].map(tech => (
@@ -149,7 +149,7 @@ export default function Home() {
 
         <div className="py-24 overflow-hidden">
           <div className="text-center mb-10">
-            <span className="text-blue-500 font-mono text-xs tracking-[0.3em] uppercase">Trusted Technologies</span>
+            <span className="text-blue-500 font-mono text-xs tracking-[0.3em] uppercase">Teknologi yang Digunakan</span>
           </div>
           <LogoLoop
             logos={techLogos}
@@ -166,10 +166,10 @@ export default function Home() {
         {/* Section Recent Projects */}
         <section id="project" className="py-32 border-t border-white/5">
           <div className="mb-16">
-            <span className="text-emerald-500 font-mono text-sm tracking-widest uppercase mb-4 block">02 // Portfolio</span>
+            <span className="text-emerald-500 font-mono text-sm tracking-widest uppercase mb-4 block">02 // Portofolio</span>
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
               <h2 className="text-5xl md:text-6xl font-bold leading-tight">
-                Featured Projects
+                Proyek Pilihan
               </h2>
               <p className="text-white/50 max-w-sm text-lg">
                 Pilihan proyek terbaik yang menggabungkan estetika desain dengan kecanggihan teknologi.
@@ -196,10 +196,10 @@ export default function Home() {
         {/* Section Services / Products */}
         <section id="services" className="py-32 border-t border-white/5">
           <div className="mb-16">
-            <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">03 // Solutions</span>
+            <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">03 // Layanan</span>
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
               <h2 className="text-5xl md:text-6xl font-bold leading-tight">
-                Premium Services
+                Layanan Premium
               </h2>
               <p className="text-white/50 max-w-sm text-lg">
                 Layanan profesional yang dirancang untuk membantu bisnismu tumbuh lebih cepat dan efisien.

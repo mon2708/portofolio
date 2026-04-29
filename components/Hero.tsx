@@ -29,9 +29,12 @@ export default function Hero() {
         </div>
 
         <div>
+          {/* h1 tersembunyi untuk SEO — Google butuh satu h1 yang jelas */}
+          <h1 className="sr-only">Remon — Afterlife | Web Developer & Jasa Digital Indonesia</h1>
+
           <div className="text-4xl md:text-6xl font-bold leading-tight">
             <BlurText
-              text="Build Something"
+              text="Bangun Sesuatu yang"
               delay={50}
               animateBy="words"
               direction="top"
@@ -39,7 +42,7 @@ export default function Hero() {
             />
 
             <BlurText
-              text="Beautiful & Powerful"
+              text="Indah & Bertenaga"
               delay={150}
               animateBy="words"
               direction="top"
@@ -49,9 +52,9 @@ export default function Hero() {
 
           <TextType
             text={[
-              "HEY!! Remon is here!! Whats up!",
+              "Halo!! Remon di sini!! Apa kabar!",
               "Saya percaya bahwa desain adalah jembatan antara imajinasi dan realita. Fokus saya bukan cuma bikin web yang 'jalan', tapi bikin web yang punya jiwa lewat animasi yang halus dan UX yang presisi.",
-              "Happy coding!"]}
+              "Selamat coding!"]}
             className="mt-6 text-white/90 max-w-md bg-white/5 backdrop-blur-md px-4 py-2 rounded-xl"
             deletingSpeed={10}
           ></TextType>
