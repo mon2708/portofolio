@@ -32,7 +32,7 @@ export default function Hero() {
           {/* h1 tersembunyi untuk SEO — Google butuh satu h1 yang jelas */}
           <h1 className="sr-only">Afterlife by Remon — Menghidupkan Ide Digital Kamu | Web Developer Indonesia</h1>
 
-          <div className="text-4xl md:text-7xl font-bold leading-[1.1] tracking-tight">
+          <div className="text-[2.6rem] md:text-7xl font-bold leading-[1.1] tracking-tight">
             <BlurText
               text="Menghidupkan"
               delay={50}
@@ -54,36 +54,39 @@ export default function Hero() {
             text={[
               "Halo!! Remon di sini!! Apa kabar!",
               "Saya percaya bahwa desain adalah jembatan antara imajinasi dan realita. Fokus saya bukan cuma bikin web yang 'jalan', tapi bikin web yang punya jiwa lewat animasi yang halus dan UX yang presisi.",
-              "Selamat coding!"]}
-            className="mt-6 text-white/90 max-w-md bg-white/5 backdrop-blur-md px-4 py-2 rounded-xl"
+              "Happy coding!"]}
+            className="mt-8 text-white/80 text-sm md:text-base max-w-md bg-white/5 backdrop-blur-md px-5 py-4 rounded-2xl border border-white/10 leading-relaxed"
             deletingSpeed={10}
           ></TextType>
 
-          <div className="mt-8 flex gap-4">
-            <Link href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer">
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            <Link href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
               <button
-                className="px-6 py-3
+                className="w-full px-8 py-4
       rounded-xl
       backdrop-blur-md
-      bg-white/75
-      border border-white/20
+      bg-white
       text-black
-      hover:bg-white/20
-      transition"
+      font-bold
+      hover:bg-white/90
+      active:scale-95
+      transition-all"
               >
                 Contact Me
               </button>
             </Link>
-            <Link href="#about" scroll={false}>
+            <Link href="#about" scroll={false} className="w-full sm:w-auto">
               <button
-                className="px-6 py-3
+                className="w-full px-8 py-4
     rounded-xl
     backdrop-blur-md
     bg-white/10
     border border-white/20
     text-white
+    font-semibold
     hover:bg-white/20
-    transition"
+    active:scale-95
+    transition-all"
               >
                 Learn More
               </button>
