@@ -252,7 +252,7 @@ export default function Home() {
         
         <div className="flex flex-col lg:flex-row items-center w-full">
           {/* Left: THE MASSIVE PHOTO */}
-          <div className="w-full lg:w-1/2">
+          <div className="w-full lg:w-1/2 flex justify-center px-6 lg:px-16">
             <ProfileCard 
               name="Remon"
               title={lang === 'id' ? "Fullstack Developer" : "Fullstack Developer"}
