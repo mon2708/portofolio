@@ -11,6 +11,7 @@ import image2 from "@/public/2.png"
 import LogoLoop from '@/components/LogoLoop';
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiFramer, SiNodedotjs, SiFigma } from 'react-icons/si';
 import ServiceCard from "@/components/ServiceCard";
+import ProfileCard from "@/components/ProfileCard";
 import { productsData } from "@/data/products";
 
 const techLogos = [
@@ -239,6 +240,53 @@ export default function Home() {
                   <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+
+        <div id="about-me" className="py-32 border-t border-white/5 relative overflow-hidden">
+          {/* Background Decor */}
+          <div className="absolute top-1/2 left-0 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full -translate-y-1/2 -translate-x-1/2" />
+          
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
+            <div className="lg:col-span-2 flex justify-center lg:justify-start">
+              <ProfileCard 
+                name="Remon"
+                title={lang === 'id' ? "Fullstack Developer" : "Fullstack Developer"}
+                handle="afterlife.remon"
+                status="Available"
+                avatarUrl="/2.png" // Menggunakan gambar yang sudah ada
+                onContactClick={() => window.open(`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}`, '_blank')}
+                behindGlowColor="rgba(59, 130, 246, 0.5)"
+              />
+            </div>
+            
+            <div className="lg:col-span-3">
+              <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">01.7 // {lang === 'id' ? 'Tentang Saya' : 'About Me'}</span>
+              <h2 className="text-5xl font-bold mb-8">{lang === 'id' ? 'Di Balik Layar' : 'Behind the Screens'} <span className="text-blue-500">Afterlife.</span></h2>
+              
+              <div className="space-y-6 text-white/60 text-lg leading-relaxed">
+                <p>
+                  {lang === 'id' 
+                    ? "Halo! Saya Remon, otak dan penggerak di balik Afterlife. Saya adalah seorang developer yang terobsesi dengan detail, performa, dan estetika digital."
+                    : "Hi! I'm Remon, the mind and engine behind Afterlife. I'm a developer obsessed with details, performance, and digital aesthetics."}
+                </p>
+                <p>
+                  {lang === 'id'
+                    ? "Memulai perjalanan sebagai solo developer mengajarkan saya satu hal: kualitas tidak butuh tim besar, tapi butuh dedikasi besar. Di sini, setiap proyek saya tangani sendiri untuk memastikan standar 'Afterlife' tetap terjaga."
+                    : "Starting my journey as a solo developer taught me one thing: quality doesn't need a large team, it needs great dedication. Here, I handle every project personally to ensure the 'Afterlife' standard is maintained."}
+                </p>
+                <div className="pt-8 grid grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="text-white font-bold text-3xl mb-1">3+</h4>
+                    <p className="text-sm uppercase tracking-wider">{lang === 'id' ? 'Tahun Pengalaman' : 'Years Experience'}</p>
+                  </div>
+                  <div>
+                    <h4 className="text-white font-bold text-3xl mb-1">10+</h4>
+                    <p className="text-sm uppercase tracking-wider">{lang === 'id' ? 'Proyek Selesai' : 'Projects Completed'}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
