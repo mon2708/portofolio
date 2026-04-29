@@ -265,7 +265,7 @@ export default function Footer() {
       </div>
 
       {/* Giant Bottom Marquee / Decorative Title */}
-      <div className="absolute bottom-10 left-0 w-full opacity-[0.1] pointer-events-none select-none">
+      <div className="absolute -bottom-10 left-0 w-full opacity-[0.1] pointer-events-none select-none">
         <h1 className="text-[15vw] font-black leading-none text-center">AFTERLIFE</h1>
       </div>
     </footer>
