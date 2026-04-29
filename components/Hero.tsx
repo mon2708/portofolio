@@ -38,7 +38,17 @@ export default function Hero() {
     }
   };
 
-  const t = content[lang];
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+      window.history.pushState(null, '', `#${id}`);
+    }
+  };
 
   return (
     <section className="min-h-[90vh] flex items-center px-6">
@@ -102,7 +112,7 @@ export default function Hero() {
                 {t.contact}
               </button>
             </Link>
-            <Link href="#about" scroll={false} className="w-full sm:w-auto">
+            <a href="#about" onClick={(e) => handleScroll(e, 'about')} className="w-full sm:w-auto">
               <button
                 className="w-full px-8 py-4
     rounded-xl
@@ -117,7 +127,7 @@ export default function Hero() {
               >
                 {t.learn}
               </button>
-            </Link>
+            </a>
           </div>
         </div>
         <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-b from-transparent via-black/60 to-black" />

@@ -4,6 +4,7 @@ import GlassSurface from "./GlassSurface";
 import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { FiGithub, FiLinkedin } from "react-icons/fi";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
@@ -171,12 +172,12 @@ export default function Navbar() {
 
                 <p className="text-white/40 text-sm tracking-widest uppercase">Socials</p>
                 <div className="flex gap-4 mt-4">
-                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:bg-blue-500/20 hover:text-blue-500 transition-all cursor-pointer">
-                    IN
-                  </div>
-                  <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:bg-blue-500/20 hover:text-blue-500 transition-all cursor-pointer">
-                    GH
-                  </div>
+                  <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:bg-blue-500/20 hover:text-blue-500 transition-all cursor-pointer">
+                    <FiLinkedin size={18} />
+                  </a>
+                  <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/70 hover:bg-blue-500/20 hover:text-blue-500 transition-all cursor-pointer">
+                    <FiGithub size={18} />
+                  </a>
                 </div>
               </motion.div>
             </div>

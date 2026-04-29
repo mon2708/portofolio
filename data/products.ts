@@ -1,4 +1,4 @@
-export const productsData = {
+export const productsData: any = {
   id: {
     shopName: "AfterLife",
     description: "Toko kami menyediakan berbagai macam produk berkualitas.",

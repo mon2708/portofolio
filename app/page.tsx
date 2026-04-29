@@ -266,12 +266,12 @@ export default function Home() {
               if (nameLower.includes('server')) icon = <FiServer />;
               if (nameLower.includes('landing page')) icon = <FiLayers />;
               if (nameLower.includes('api') || nameLower.includes('backend')) icon = <FiCpu />;
-              
+
               const waMessage = encodeURIComponent(`Halo Afterlife, saya tertarik dengan layanan: ${service.name}`);
               const waLink = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${waMessage}`;
 
               return (
-                <ServiceCard 
+                <ServiceCard
                   key={index}
                   name={service.name}
                   price={service.price}
