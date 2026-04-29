@@ -198,6 +198,51 @@ export default function Home() {
           </div>
         </section>
 
+        <div id="approach" className="py-32 border-t border-white/5 bg-gradient-to-b from-black via-blue-900/5 to-black">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">01.5 // {lang === 'id' ? 'Filosofi Kerja' : 'Work Philosophy'}</span>
+              <h2 className="text-5xl md:text-7xl font-bold leading-tight mb-8">
+                {lang === 'id' ? 'Satu Orang,' : 'One Man,'} <br /> 
+                <span className="text-blue-500">{lang === 'id' ? 'Banyak Solusi' : 'Endless Solutions'}</span>
+              </h2>
+              <p className="text-white/60 text-xl leading-relaxed">
+                {lang === 'id' 
+                  ? "Saya tidak cuma nulis kode. Saya membangun identitas digital kamu. Sebagai solo developer, saya memberikan perhatian penuh pada setiap detail yang biasanya terlewatkan oleh tim besar." 
+                  : "I don't just write code. I build your digital identity. As a solo developer, I give full attention to every detail that big teams usually overlook."}
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 gap-6">
+              {[
+                { 
+                  title: lang === 'id' ? 'Komunikasi Langsung' : 'Direct Communication', 
+                  desc: lang === 'id' ? 'Kamu bicara langsung dengan developernya. Nggak ada salah paham, nggak ada perantara.' : 'You speak directly to the developer. No misunderstandings, no middlemen.',
+                  icon: <FiMessageCircle className="text-blue-400" /> 
+                },
+                { 
+                  title: lang === 'id' ? 'Eksekusi Cepat' : 'Agile Execution', 
+                  desc: lang === 'id' ? 'Tanpa birokrasi perusahaan. Ide kamu bisa langsung jadi kode dalam waktu singkat.' : 'No corporate bureaucracy. Your ideas turn into code in no time.',
+                  icon: <FiZap className="text-yellow-400" /> 
+                },
+                { 
+                  title: lang === 'id' ? 'Kualitas Personal' : 'Personal Quality', 
+                  desc: lang === 'id' ? 'Setiap baris kode adalah reputasi saya. Saya pastikan hasilnya pixel-perfect.' : 'Every line of code is my reputation. I ensure pixel-perfect results.',
+                  icon: <FiAward className="text-emerald-400" /> 
+                },
+              ].map((item, i) => (
+                <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/30 transition-all group">
+                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    {item.icon}
+                  </div>
+                  <h4 className="text-xl font-bold mb-2">{item.title}</h4>
+                  <p className="text-white/40 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         <div className="py-24 overflow-hidden">
           <div className="text-center mb-10">
             <span className="text-blue-500 font-mono text-xs tracking-[0.3em] uppercase">{t.techLabel}</span>

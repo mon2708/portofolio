@@ -114,7 +114,7 @@ export default function Hero() {
                 {t.contact}
               </button>
             </Link>
-            <a href="#about" onClick={(e) => handleScroll(e, 'about')} className="w-full sm:w-auto">
+            <a href="#approach" onClick={(e) => handleScroll(e, 'approach')} className="w-full sm:w-auto">
               <button
                 className="w-full px-8 py-4
     rounded-xl
