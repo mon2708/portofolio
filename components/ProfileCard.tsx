@@ -95,7 +95,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className="relative w-full max-w-[480px] aspect-[3/4] rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl transition-transform duration-200 ease-out flex flex-col"
+        className="relative w-full aspect-[3/4] rounded-[3.5rem] overflow-hidden border border-white/10 shadow-2xl transition-transform duration-200 ease-out flex flex-col"
         style={{
           background: innerGradient,
           backdropFilter: 'blur(10px)',
