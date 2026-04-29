@@ -252,7 +252,7 @@ export default function Home() {
         
         <div className="flex flex-col lg:flex-row items-center w-full">
           {/* Left: THE MASSIVE PHOTO */}
-          <div className="w-full lg:w-1/2 flex justify-center px-6 lg:px-16">
+          <div className="w-full lg:w-1/2 flex justify-center lg:justify-start">
             <ProfileCard 
               name="Remon"
               title={lang === 'id' ? "Fullstack Developer" : "Fullstack Developer"}
@@ -265,10 +265,10 @@ export default function Home() {
           </div>
           
           {/* Right: Content */}
-          <div className="w-full lg:w-1/2 px-6 lg:px-24 py-16 lg:py-0">
+          <div className="w-full lg:w-1/2 px-6 lg:px-20 py-16 lg:py-0">
             <div className="max-w-xl">
               <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">01.7 // {lang === 'id' ? 'Tentang Saya' : 'About Me'}</span>
-              <h2 className="text-6xl md:text-8xl font-bold mb-10 tracking-tighter leading-none">
+              <h2 className="text-5xl md:text-7xl font-bold mb-10 tracking-tighter leading-tight">
                 {lang === 'id' ? 'Di Balik' : 'Behind'} <br /> 
                 <span className="text-blue-500">{lang === 'id' ? 'Layar.' : 'Screens.'}</span>
               </h2>
