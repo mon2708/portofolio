@@ -5,6 +5,8 @@ export const alt = "Afterlife by Remon — Web Developer Indonesia";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+const BASE_URL = "https://afterlife-remon.vercel.app";
+
 export default async function Image() {
   // Ambil URL logo secara absolut untuk ImageResponse
   const logoUrl = `${BASE_URL}/logo-afterlife.png`;
