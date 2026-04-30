@@ -257,7 +257,7 @@ export default function Home() {
               name="Remon"
               title={lang === 'id' ? "Fullstack Developer" : "Fullstack Developer"}
               handle="afterlife.remon"
-              avatarUrl="/profile.JPG"
+              avatarUrl="/profile.jpg"
             />
           </div>
 
