@@ -34,7 +34,7 @@ export default function Footer() {
       formDetails: "Detail Proyek",
       formPlaceholder: "Ceritakan tentang proyekmu...",
       formButton: "Kirim Pesan",
-      formSending: "Mengirim...",
+      formSending: "Mengirim.+62 858-5502-2184..",
       formError: "Gagal mengirim pesan. Coba lagi nanti.",
       successTitle: "Pesan Terkirim!",
       successDesc: "Terima kasih atas pesanmu. Saya akan segera menghubungimu.",

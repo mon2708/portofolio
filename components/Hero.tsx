@@ -60,13 +60,13 @@ export default function Hero() {
             animationType="3drotate"
             timeScale={0.1}
             height={3.5}
-            baseWidth={6.7}
+            baseWidth={6.5}
             scale={3.0}
             hueShift={0}
             colorFrequency={0.8}
-            noise={0.1}
+            noise={0}
             glow={1}
-            suspendWhenOffscreen={true}
+            suspendWhenOffscreen={false}
           />
         </div>
 

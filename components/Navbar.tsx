@@ -34,12 +34,10 @@ export default function Navbar() {
       window.history.pushState(null, '', `#${id}`);
     }
   };
-
   const navLinks = [
-    { name: "Home", href: "/", isLink: true },
-    { name: "Expertise", href: "about", isLink: false },
-    { name: "Portfolio", href: "project", isLink: false },
-    { name: "Solutions", href: "services", isLink: false },
+    { name: "Expertise", href: "about" },
+    { name: "Portfolio", href: "project" },
+    { name: "Solutions", href: "services" },
   ];
 
   return (
@@ -47,27 +45,22 @@ export default function Navbar() {
       <div className="fixed top-0 left-0 w-full z-50 flex justify-center mt-6">
         <GlassSurface>
           <nav className="flex items-center justify-between px-6 md:px-8 py-3 w-[90vw] md:w-[85vw] max-w-3xl">
-            {/* Logo */}
-            <div className="text-white font-bold text-xl tracking-tighter">
+            {/* Logo acting as Home button */}
+            <Link
+              href="/"
+              className="text-white font-bold text-xl tracking-tighter hover:opacity-80 transition-opacity"
+              onClick={() => {
+                setIsOpen(false);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
               AFTERLIFE<span className="text-blue-500">.</span>
-            </div>
+            </Link>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex gap-8 text-white/70 text-sm font-medium">
-              {navLinks.map((link) => (
-                link.isLink ? (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="hover:text-white transition"
-                    onClick={() => {
-                      setIsOpen(false);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                  >
-                    {link.name}
-                  </Link>
-                ) : (
+            <div className="hidden md:flex items-center gap-8 text-white/70 text-sm font-medium">
+              <div className="flex gap-8">
+                {navLinks.map((link) => (
                   <a
                     key={link.name}
                     href={`#${link.href}`}
@@ -76,8 +69,24 @@ export default function Navbar() {
                   >
                     {link.name}
                   </a>
-                )
-              ))}
+                ))}
+              </div>
+
+              {/* Desktop Language Switcher */}
+              <div className="flex bg-white/5 p-1 rounded-lg border border-white/10 ml-8">
+                <button
+                  onClick={() => setLanguage("id")}
+                  className={`px-3 py-1 text-[10px] font-bold rounded-md transition-all ${lang === 'id' ? 'bg-blue-600 text-white shadow-lg' : 'text-white/40 hover:text-white'}`}
+                >
+                  ID
+                </button>
+                <button
+                  onClick={() => setLanguage("en")}
+                  className={`px-3 py-1 text-[10px] font-bold rounded-md transition-all ${lang === 'en' ? 'bg-blue-600 text-white shadow-lg' : 'text-white/40 hover:text-white'}`}
+                >
+                  EN
+                </button>
+              </div>
             </div>
 
             {/* Mobile Toggle */}

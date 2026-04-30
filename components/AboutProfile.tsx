@@ -1,18 +1,24 @@
-"use client"
 import React, { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'motion/react'
+import { motion, useScroll, useTransform, useSpring } from 'motion/react'
 import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi'
+import profile from "@/public/profile.jpg"
 
 interface AboutProfileProps {
-  avatarUrl: string;
   name: string;
   title: string;
   handle: string;
+  avatarUrl?: string;
 }
 
-const AboutProfile: React.FC<AboutProfileProps> = ({ avatarUrl, name, title, handle }) => {
+const AboutProfile: React.FC<AboutProfileProps> = ({ name, title, handle, avatarUrl }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = React.useState({ x: 0, y: 0 });
+
+  // Spring configurations for smooth mouse movement
+  const springConfig = { stiffness: 150, damping: 20 };
+  const rotateX = useSpring(0, springConfig);
+  const rotateY = useSpring(0, springConfig);
+  const contentX = useSpring(0, springConfig);
+  const contentY = useSpring(0, springConfig);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -27,60 +33,67 @@ const AboutProfile: React.FC<AboutProfileProps> = ({ avatarUrl, name, title, han
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     const { left, top, width, height } = containerRef.current.getBoundingClientRect();
-    const x = (e.clientX - left) / width - 0.5;
-    const y = (e.clientY - top) / height - 0.5;
-    setMousePos({ x, y });
+
+    // Normalized values (-0.5 to 0.5)
+    const xVal = (e.clientX - left) / width - 0.5;
+    const yVal = (e.clientY - top) / height - 0.5;
+
+    rotateX.set(yVal * -15);
+    rotateY.set(xVal * 15);
+    contentX.set(xVal * 40);
+    contentY.set(yVal * 40);
   };
 
   const handleMouseLeave = () => {
-    setMousePos({ x: 0, y: 0 });
+    rotateX.set(0);
+    rotateY.set(0);
+    contentX.set(0);
+    contentY.set(0);
   };
 
   return (
-    <div 
-      ref={containerRef} 
+    <div
+      ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className="relative w-full h-[600px] md:h-[800px] cursor-none-on-hover"
       style={{ perspective: "2000px" }}
     >
-      <motion.div 
-        style={{ 
-          rotateX: mousePos.y * -15,
-          rotateY: mousePos.x * 15,
+      <motion.div
+        style={{
+          rotateX,
+          rotateY,
           transformStyle: "preserve-3d"
         }}
-        transition={{ type: "spring", stiffness: 100, damping: 30 }}
         className="relative w-full h-full overflow-hidden rounded-[4rem] border border-white/5 group shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)]"
       >
         {/* Immersive Background Image Container */}
-        <motion.div 
-          style={{ 
-            y, 
+        <motion.div
+          style={{
+            y,
             scale,
             opacity,
-            translateZ: "-50px" // Pushes image slightly back for depth
+            translateZ: "-50px"
           }}
           className="absolute inset-0 z-0 will-change-transform"
         >
-          <img 
-            src={avatarUrl} 
+          <img
+            src={avatarUrl || profile.src}
             alt={name}
-            className="w-full h-full object-cover grayscale brightness-[0.8] group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000 ease-out"
+            className="w-full h-full object-cover grayscale brightness-[0.8] group-hover:grayscale-0 group-hover:brightness-125 transition-all duration-1000 ease-out"
           />
           {/* Deep Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90 group-hover:opacity-70 transition-opacity duration-700" />
         </motion.div>
 
         {/* Floating Elements on Top of Image */}
-        <div className="absolute inset-0 z-10 flex flex-col justify-end p-10 md:p-20 pointer-events-none">
+        <div className="absolute inset-0 z-10 flex flex-col justify-end p-10 md:p-10 pointer-events-none">
           <motion.div
             style={{
-              x: mousePos.x * 40,
-              y: mousePos.y * 40,
-              translateZ: "50px" // Pulls text slightly forward for 3D effect
+              x: contentX,
+              y: contentY,
+              translateZ: "50px"
             }}
-            transition={{ type: "spring", stiffness: 150, damping: 25 }}
           >
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -104,7 +117,7 @@ const AboutProfile: React.FC<AboutProfileProps> = ({ avatarUrl, name, title, han
                 { icon: <FiLinkedin />, label: 'LinkedIn', href: '#' },
                 { icon: <FiInstagram />, label: 'Instagram', href: '#' }
               ].map((social, i) => (
-                <a 
+                <a
                   key={i}
                   href={social.href}
                   target="_blank"
@@ -125,8 +138,6 @@ const AboutProfile: React.FC<AboutProfileProps> = ({ avatarUrl, name, title, han
         </div>
       </motion.div>
     </div>
-  )
-}
   )
 }
 

@@ -7,11 +7,11 @@ import StatCard from "@/components/StatCard"
 import Footer from "@/components/Footer"
 import ScrollToTop from "@/components/ScrollToTop"
 import { FiTarget, FiUsers, FiAward, FiZap, FiGlobe, FiMessageCircle, FiServer, FiLayers, FiCpu } from 'react-icons/fi'
-import image2 from "@/public/2.png"
 import LogoLoop from '@/components/LogoLoop';
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiJavascript, SiFramer, SiNodedotjs, SiFigma } from 'react-icons/si';
 import ServiceCard from "@/components/ServiceCard";
 import AboutProfile from "@/components/AboutProfile";
+import EasterEgg from "@/components/EasterEgg";
 import { productsData } from "@/data/products";
 
 const techLogos = [
@@ -132,14 +132,14 @@ export default function Home() {
     {
       title: "Ela",
       category: lang === 'id' ? "Platform Streaming" : "Streaming Platform",
-      image: image2,
+      image: "/projects/elawe.png",
       tags: ["React", "D3.js", "Firebase", "API"],
       link: "#"
     },
     {
       title: "AProject",
       category: lang === 'id' ? "Toko Digital" : "Digital Store",
-      image: "/projects/luxury.png",
+      image: "/projects/pbg.png",
       tags: ["Next.js", "Stripe", "Tailwind", "JS"],
       link: "#"
     }
@@ -257,7 +257,7 @@ export default function Home() {
               name="Remon"
               title={lang === 'id' ? "Fullstack Developer" : "Fullstack Developer"}
               handle="afterlife.remon"
-              avatarUrl="/2.png"
+              avatarUrl="/profile.JPG"
             />
           </div>
 
@@ -317,7 +317,13 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 mb-20">
             {t.stats.map((stat: any, i: number) => (
-              <StatCard key={i} value={stat.value} label={stat.label} icon={i === 0 ? <FiTarget size={24} /> : i === 1 ? <FiUsers size={24} /> : i === 2 ? <FiAward size={24} /> : <FiZap size={24} />} />
+              <StatCard
+                key={i}
+                value={stat.value}
+                label={stat.label}
+                icon={i === 0 ? <FiTarget size={24} /> : i === 1 ? <FiUsers size={24} /> : i === 2 ? <FiAward size={24} /> : <FiZap size={24} />}
+                href={i === 2 ? '/certificates' : undefined}
+              />
             ))}
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -355,6 +361,7 @@ export default function Home() {
 
       <Footer />
       <ScrollToTop />
+      <EasterEgg />
     </main>
   );
 }

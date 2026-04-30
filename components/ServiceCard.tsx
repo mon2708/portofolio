@@ -22,7 +22,7 @@ export default function ServiceCard({ name, price, description, icon, index, ser
     >
       {/* Decorative Glow */}
       <div className="absolute -right-4 -top-4 w-24 h-24 bg-blue-500/10 blur-3xl group-hover:bg-blue-500/20 transition-colors duration-500" />
-      
+
       <div className="relative z-10">
         <div className="flex justify-between items-start mb-6">
           <div className="w-14 h-14 rounded-2xl bg-blue-500/20 flex items-center justify-center border border-blue-500/30 group-hover:scale-110 transition-transform duration-500">
@@ -39,8 +39,8 @@ export default function ServiceCard({ name, price, description, icon, index, ser
           {description}
         </p>
 
-        <a 
-          href={serviceLink || "#"} 
+        <a
+          href={serviceLink || "#"}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-white font-medium group/btn cursor-pointer"

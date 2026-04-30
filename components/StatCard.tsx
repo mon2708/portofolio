@@ -1,16 +1,25 @@
 import React from 'react';
+import Link from 'next/link';
+import { FiArrowUpRight } from 'react-icons/fi';
 
 interface StatCardProps {
   value: string;
   label: string;
   icon?: React.ReactNode;
+  href?: string;
 }
 
-export default function StatCard({ value, label, icon }: StatCardProps) {
-  return (
-    <div className="relative group overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl p-5 md:p-6 transition-all hover:bg-white/10">
+export default function StatCard({ value, label, icon, href }: StatCardProps) {
+  const content = (
+    <div className={`relative group overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl p-5 md:p-6 transition-all hover:bg-white/10 ${href ? 'cursor-pointer hover:border-blue-500/30' : ''}`}>
       <div className="absolute -right-4 -top-4 w-16 h-16 bg-blue-500/10 rounded-full blur-3xl transition-all group-hover:bg-blue-500/20" />
       
+      {href && (
+        <div className="absolute top-4 right-4 text-white/20 group-hover:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300">
+          <FiArrowUpRight size={14} />
+        </div>
+      )}
+
       <div className="relative z-10 flex items-center md:items-start gap-4 md:gap-0 md:flex-col">
         {icon && (
           <div className="text-blue-400 md:mb-3 opacity-80 group-hover:opacity-100 transition-opacity shrink-0">
@@ -28,4 +37,10 @@ export default function StatCard({ value, label, icon }: StatCardProps) {
       </div>
     </div>
   );
+
+  if (href) {
+    return <Link href={href}>{content}</Link>;
+  }
+
+  return content;
 }

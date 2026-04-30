@@ -61,7 +61,7 @@ export const metadata: Metadata = {
       "Fullstack web developer Indonesia. Pembuatan website, landing page, bot WhatsApp bisnis, dan layanan digital premium. Hubungi Remon sekarang!",
     images: [
       {
-        url: "/og-image.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Afterlife by Remon — Web Developer Indonesia",
@@ -73,8 +73,12 @@ export const metadata: Metadata = {
     title: "Remon | Afterlife — Web Developer & Jasa Digital Indonesia",
     description:
       "Fullstack web developer Indonesia. Pembuatan website, landing page, bot WhatsApp bisnis, dan layanan digital premium.",
-    images: ["/og-image.png"],
+    images: ["/opengraph-image"],
     creator: "@afterliferemon",
+  },
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
   },
 };
 
