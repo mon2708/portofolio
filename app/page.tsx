@@ -149,9 +149,10 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white">
       <Navbar />
 
-      {/* Container 1: Hero, Expertise, Approach */}
-      <div className="pt-24 px-6 max-w-7xl mx-auto">
-        <Hero />
+      <Hero />
+
+      {/* Container 1: Expertise, Approach */}
+      <div className="px-6 max-w-7xl mx-auto">
 
         {/* Expertise Section */}
         <section id="about" className="grid grid-cols-1 lg:grid-cols-5 gap-12 py-20 lg:py-32 border-t border-white/5 mt-20">

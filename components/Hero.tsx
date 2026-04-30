@@ -3,9 +3,7 @@
 import Image from "next/image";
 import BlurText from "./blurteks";
 import styles from "./Hero.module.css";
-import Prism from "./Prism";
-import { useEffect, useRef } from "react";
-import Public from "@/public/pbg.png";
+import HeroBg from "@/public/hero-bg.png";
 import TextType from "./TextType";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
@@ -53,23 +51,22 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-[90vh] flex items-center px-6">
-      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-10 items-center">
-        <div style={{ position: "absolute", inset: 0 }}>
-          <Prism
-            animationType="3drotate"
-            timeScale={0.1}
-            height={3.5}
-            baseWidth={6.5}
-            scale={3.0}
-            hueShift={0}
-            colorFrequency={0.8}
-            noise={0}
-            glow={1}
-            suspendWhenOffscreen={false}
-          />
-        </div>
+    <section className="relative min-h-[90vh] flex items-center px-6 pt-32 overflow-hidden">
+      {/* Background Image Optimized */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={HeroBg}
+          alt="Hero Background"
+          fill
+          priority
+          className="object-cover opacity-100"
+        />
+        {/* Subtle Gradient Overlays for depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/1 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent" />
+      </div>
 
+      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-10 items-center relative z-10">
         <div>
           {/* h1 tersembunyi untuk SEO — Google butuh satu h1 yang jelas */}
           <h1 className="sr-only">Afterlife by Remon — {t.line1} {t.line2} | Web Developer Indonesia</h1>
@@ -132,8 +129,9 @@ export default function Hero() {
             </a>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-b from-transparent via-black/60 to-black" />
       </div>
+      {/* Efek fade transisi ke section bawah yang lebih halus & full width */}
+      <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-t from-black to-transparent z-20" />
     </section>
   );
 }
