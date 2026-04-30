@@ -35,9 +35,10 @@ export default function Navbar() {
     }
   };
   const navLinks = [
-    { name: "Expertise", href: "about" },
-    { name: "Portfolio", href: "project" },
-    { name: "Solutions", href: "services" },
+    { name: "Expertise", href: "about", isLink: false },
+    { name: "Portfolio", href: "project", isLink: false },
+    { name: "Solutions", href: "services", isLink: false },
+    { name: "Certificates", href: "/certificates", isLink: true },
   ];
 
   return (
@@ -61,14 +62,24 @@ export default function Navbar() {
             <div className="hidden md:flex items-center gap-8 text-white/70 text-sm font-medium">
               <div className="flex gap-8">
                 {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={`#${link.href}`}
-                    className="hover:text-white transition cursor-pointer"
-                    onClick={(e) => handleScroll(e, link.href)}
-                  >
-                    {link.name}
-                  </a>
+                  link.isLink ? (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className="hover:text-white transition cursor-pointer"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      key={link.name}
+                      href={`#${link.href}`}
+                      className="hover:text-white transition cursor-pointer"
+                      onClick={(e) => handleScroll(e, link.href)}
+                    >
+                      {link.name}
+                    </a>
+                  )
                 ))}
               </div>
 
