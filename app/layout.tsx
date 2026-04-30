@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Afterlife by Remon",
   },
   description:
-    "Remon (Afterlife) — Fullstack web developer Indonesia. Spesialis pembuatan website modern, landing page profesional, bot WhatsApp bisnis, dan layanan digital premium. Hubungi sekarang!",
+    "Remon (Afterlife) — Jasa pembuatan website profesional dan Fullstack Web Developer Indonesia. Ahli dalam Landing Page, Bot WhatsApp Bisnis, E-commerce, dan aplikasi web modern dengan Next.js & React. Solusi digital terbaik untuk bisnis Anda!",
   keywords: [
     "Remon",
     "Afterlife",
@@ -36,6 +36,21 @@ export const metadata: Metadata = {
     "jasa website murah",
     "next js developer Indonesia",
     "react developer Indonesia",
+    "jasa website purbalingga",
+    "jasa website purwokerto",
+    "jasa website jawa tengah",
+    "freelance developer Indonesia",
+    "jasa website umkm",
+    "jasa landing page murah",
+    "pembuatan bot whatsapp otomatis",
+    "web designer indonesia",
+    "software house indonesia",
+    "jasa website portfolio",
+    "jasa aplikasi web custom",
+    "jasa optimasi seo",
+    "jasa maintenance website",
+    "biaya buat website 2026",
+    "afterlife digital solution"
   ],
   authors: [{ name: "Remon", url: BASE_URL }],
   creator: "Remon",
@@ -56,9 +71,9 @@ export const metadata: Metadata = {
     locale: "id_ID",
     url: BASE_URL,
     siteName: "Afterlife by Remon",
-    title: "Remon | Afterlife — Web Developer & Jasa Digital Indonesia",
+    title: "Remon | Afterlife — Jasa Pembuatan Website & Developer Indonesia",
     description:
-      "Fullstack web developer Indonesia. Pembuatan website, landing page, bot WhatsApp bisnis, dan layanan digital premium. Hubungi Remon sekarang!",
+      "Solusi Digital Afterlife: Jasa website profesional, landing page, dan bot WhatsApp bisnis oleh Remon. Kualitas premium, performa tinggi, desain modern.",
     images: [
       {
         url: "/opengraph-image",
@@ -90,7 +105,7 @@ const jsonLd = {
   url: BASE_URL,
   jobTitle: "Fullstack Web Developer",
   description:
-    "Fullstack web developer Indonesia spesialis React, Next.js, bot WhatsApp bisnis, dan layanan digital premium.",
+    "Fullstack web developer Indonesia spesialis React, Next.js, bot WhatsApp bisnis, dan layanan digital premium untuk UMKM hingga korporasi.",
   knowsAbout: [
     "Web Development",
     "React",
@@ -99,6 +114,10 @@ const jsonLd = {
     "WhatsApp Bot",
     "UI/UX Design",
     "Node.js",
+    "Search Engine Optimization (SEO)",
+    "API Development",
+    "Cloud Computing",
+    "Database Architecture"
   ],
   sameAs: [],
   offers: {
