@@ -1,7 +1,8 @@
 import React, { useRef } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'motion/react'
 import { FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi'
-import profile from "@/public/profile.jpg"
+import Image from 'next/image'
+import profile from "@/public/profile.webp"
 
 interface AboutProfileProps {
   name: string;
@@ -77,9 +78,12 @@ const AboutProfile: React.FC<AboutProfileProps> = ({ name, title, handle, avatar
           }}
           className="absolute inset-0 z-0 will-change-transform"
         >
-          <img
-            src={avatarUrl || profile.src}
+          <Image
+            src={avatarUrl || profile}
             alt={name}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority
             className="w-full h-full object-cover grayscale brightness-[0.8] group-hover:grayscale-0 group-hover:brightness-125 transition-all duration-1000 ease-out"
           />
           {/* Deep Gradient Overlay */}
